@@ -6,14 +6,14 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class SelectTest
+public class SelectTest extends BaseTest
 {
     @Test
     public void selectAll()
     {
         Select select = new Select();
 
-        assertEquals("SELECT *;", select.toString());
+        check("SELECT *;", select);
     }
 
     @Test
@@ -21,7 +21,7 @@ public class SelectTest
     {
         Select select = new Select("name", "age", "weight");
 
-        assertEquals("SELECT name, age, weight;", select.toString());
+        check("SELECT name, age, weight;", select);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class SelectTest
     {
         Select select = new Select("name", "age", "weight").from("Person");
 
-        assertEquals("SELECT name, age, weight FROM Person;", select.toString());
+        check("SELECT name, age, weight FROM Person;", select);
     }
 
     @Test
@@ -37,7 +37,7 @@ public class SelectTest
     {
         Select select = new Select("Person.name", "Person.age", "Person.weight", "Employee.id").from("Person", "Employee");
 
-        assertEquals("SELECT Person.name, Person.age, Person.weight, Employee.id FROM Person, Employee;", select.toString());
+        check("SELECT Person.name, Person.age, Person.weight, Employee.id FROM Person, Employee;", select);
     }
 
     @Test
@@ -45,7 +45,7 @@ public class SelectTest
     {
         Select select = new Select("name").from("Person").where("age >= 18");
 
-        assertEquals("SELECT name FROM Person WHERE (age >= 18);", select.toString());
+        check("SELECT name FROM Person WHERE (age >= 18);", select);
     }
 
     @Test
@@ -53,7 +53,7 @@ public class SelectTest
     {
         Select select = new Select("name").from("Person").groupBy("id", "age");
 
-        assertEquals("SELECT name FROM Person GROUP BY id, age;", select.toString());
+        check("SELECT name FROM Person GROUP BY id, age;", select);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class SelectTest
     {
         Select select = new Select("name").from("Person").groupBy("id", "age").having("age >= 18");
 
-        assertEquals("SELECT name FROM Person GROUP BY id, age HAVING (age >= 18);", select.toString());
+        check("SELECT name FROM Person GROUP BY id, age HAVING (age >= 18);", select);
     }
 
     @Test
@@ -69,7 +69,7 @@ public class SelectTest
     {
         Select select = new Select("name").from("Person").orderBy("id", "age");
 
-        assertEquals("SELECT name FROM Person ORDER BY id, age;", select.toString());
+        check("SELECT name FROM Person ORDER BY id, age;", select);
     }
 
     @Test
@@ -77,6 +77,6 @@ public class SelectTest
     {
         Select select = new Select("name").from("Person").limit(1000);
 
-        assertEquals("SELECT name FROM Person LIMIT 1000;", select.toString());
+        check("SELECT name FROM Person LIMIT 1000;", select);
     }
 }

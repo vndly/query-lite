@@ -4,16 +4,14 @@ import com.mauriciotogneri.query.create.CreateIndex;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-
-public class CreateIndexTest
+public class CreateIndexTest extends BaseTest
 {
     @Test
     public void create()
     {
         CreateIndex create = new CreateIndex("index_name", "Person");
 
-        assertEquals("CREATE INDEX index_name ON Person;", create.toString());
+        check("CREATE INDEX index_name ON Person;", create);
     }
 
     @Test
@@ -21,7 +19,7 @@ public class CreateIndexTest
     {
         CreateIndex create = new CreateIndex("index_name", "Person").unique();
 
-        assertEquals("CREATE UNIQUE INDEX index_name ON Person;", create.toString());
+        check("CREATE UNIQUE INDEX index_name ON Person;", create);
     }
 
     @Test
@@ -29,6 +27,6 @@ public class CreateIndexTest
     {
         CreateIndex create = new CreateIndex("index_name", "Person").ifNotExist();
 
-        assertEquals("CREATE INDEX IF NOT EXISTS index_name ON Person;", create.toString());
+        check("CREATE INDEX IF NOT EXISTS index_name ON Person;", create);
     }
 }
