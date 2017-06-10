@@ -1,17 +1,17 @@
 package com.mauriciotogneri.query.test;
 
-import com.mauriciotogneri.query.create.Create;
+import com.mauriciotogneri.query.create.CreateTable;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class CreateTest
+public class CreateTableTest
 {
     @Test
     public void create()
     {
-        Create create = new Create("Person");
+        CreateTable create = new CreateTable("Person");
 
         assertEquals("CREATE TABLE Person;", create.toString());
     }
@@ -19,7 +19,7 @@ public class CreateTest
     @Test
     public void createIfNotExist()
     {
-        Create create = new Create("Person").ifNotExist();
+        CreateTable create = new CreateTable("Person").ifNotExist();
 
         assertEquals("CREATE TABLE IF NOT EXISTS Person;", create.toString());
     }
@@ -27,7 +27,7 @@ public class CreateTest
     @Test
     public void createColumns()
     {
-        Create create = new Create("Person").ifNotExist().columns("ID INT PRIMARY KEY NOT NULL", "NAME TEXT NOT NULL");
+        CreateTable create = new CreateTable("Person").ifNotExist().columns("ID INT PRIMARY KEY NOT NULL", "NAME TEXT NOT NULL");
 
         assertEquals("CREATE TABLE IF NOT EXISTS Person (ID INT PRIMARY KEY NOT NULL, NAME TEXT NOT NULL);", create.toString());
     }

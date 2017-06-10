@@ -1,5 +1,7 @@
 package com.mauriciotogneri.query.select;
 
+import com.mauriciotogneri.query.common.Where;
+
 public class Select
 {
     private final Projection projection;
@@ -31,7 +33,7 @@ public class Select
         return new Select(projection, new From(table, tables), where, groupBy, having, orderBy, limit);
     }
 
-    public Select where(Condition condition)
+    public Select where(String condition)
     {
         return new Select(projection, from, new Where(condition), groupBy, having, orderBy, limit);
     }
@@ -41,7 +43,7 @@ public class Select
         return new Select(projection, from, where, new GroupBy(column, columns), having, orderBy, limit);
     }
 
-    public Select having(Condition condition)
+    public Select having(String condition)
     {
         return new Select(projection, from, where, groupBy, new Having(condition), orderBy, limit);
     }

@@ -2,9 +2,9 @@ package com.mauriciotogneri.query.select;
 
 public class Having
 {
-    private final Condition condition;
+    private final String condition;
 
-    Having(Condition condition)
+    Having(String condition)
     {
         this.condition = condition;
     }
@@ -12,6 +12,6 @@ public class Having
     @Override
     public String toString()
     {
-        return String.format(" HAVING %s", condition.toString());
+        return String.format(" HAVING (%s)", condition);
     }
 }
