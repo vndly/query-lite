@@ -1,13 +1,12 @@
 package com.mauriciotogneri.query.update;
 
-import com.mauriciotogneri.query.common.OldQuery;
 import com.mauriciotogneri.query.common.Query;
 import com.mauriciotogneri.query.common.Where;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpdateSet extends Query implements OldQuery
+public class UpdateSet extends Query
 {
     private final UpdateTable updateTable;
     private final List<SetEntry> set;

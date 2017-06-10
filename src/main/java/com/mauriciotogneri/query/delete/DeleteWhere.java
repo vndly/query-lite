@@ -1,16 +1,16 @@
-package com.mauriciotogneri.query.update;
+package com.mauriciotogneri.query.delete;
 
 import com.mauriciotogneri.query.common.Query;
 import com.mauriciotogneri.query.common.Where;
 
-public class UpdateWhere extends Query
+public class DeleteWhere extends Query
 {
-    private final UpdateSet updateSet;
+    private final DeleteFrom deleteFrom;
     private final Where where;
 
-    UpdateWhere(UpdateSet updateSet, Where where)
+    DeleteWhere(DeleteFrom deleteFrom, Where where)
     {
-        this.updateSet = updateSet;
+        this.deleteFrom = deleteFrom;
         this.where = where;
     }
 
@@ -18,7 +18,7 @@ public class UpdateWhere extends Query
     public String toString()
     {
         StringBuilder builder = new StringBuilder();
-        builder.append(updateSet.toString());
+        builder.append(deleteFrom.toString());
 
         if (where != null)
         {
