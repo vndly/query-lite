@@ -1,8 +1,9 @@
 package com.mauriciotogneri.query.create;
 
 import com.mauriciotogneri.query.common.ItemList;
+import com.mauriciotogneri.query.common.Query;
 
-public class CreateTable
+public class CreateTable implements Query
 {
     private final String name;
     private final Boolean ifNotExists;
@@ -15,7 +16,7 @@ public class CreateTable
         this.columns = columns;
     }
 
-    public CreateTable(String name)
+    CreateTable(String name)
     {
         this(name, false, null);
     }
@@ -41,7 +42,10 @@ public class CreateTable
             builder.append(" IF NOT EXISTS");
         }
 
-        builder.append(String.format(" %s", name));
+        if (name != null)
+        {
+            builder.append(String.format(" %s", name));
+        }
 
         if (columns != null)
         {

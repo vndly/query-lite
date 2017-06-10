@@ -1,6 +1,7 @@
 package com.mauriciotogneri.query.test;
 
-import com.mauriciotogneri.query.create.CreateIndex;
+import com.mauriciotogneri.query.common.Query;
+import com.mauriciotogneri.query.create.Create;
 
 import org.junit.Test;
 
@@ -9,7 +10,7 @@ public class CreateIndexTest extends BaseTest
     @Test
     public void create()
     {
-        CreateIndex create = new CreateIndex("index_name", "Person");
+        Query create = new Create().index("index_name").table("Person");
 
         check("CREATE INDEX index_name ON Person;", create);
     }
@@ -17,7 +18,7 @@ public class CreateIndexTest extends BaseTest
     @Test
     public void createUnique()
     {
-        CreateIndex create = new CreateIndex("index_name", "Person").unique();
+        Query create = new Create().index("index_name").table("Person").unique();
 
         check("CREATE UNIQUE INDEX index_name ON Person;", create);
     }
@@ -25,7 +26,7 @@ public class CreateIndexTest extends BaseTest
     @Test
     public void createIfNotExist()
     {
-        CreateIndex create = new CreateIndex("index_name", "Person").ifNotExist();
+        Query create = new Create().index("index_name").table("Person").ifNotExist();
 
         check("CREATE INDEX IF NOT EXISTS index_name ON Person;", create);
     }
@@ -33,7 +34,7 @@ public class CreateIndexTest extends BaseTest
     @Test
     public void createColumns()
     {
-        CreateIndex create = new CreateIndex("index_name", "Person").columns("id, age, name");
+        Query create = new Create().index("index_name").table("Person").columns("id, age, name");
 
         check("CREATE INDEX index_name ON Person (id, age, name);", create);
     }
@@ -41,7 +42,7 @@ public class CreateIndexTest extends BaseTest
     @Test
     public void createWhere()
     {
-        CreateIndex create = new CreateIndex("index_name", "Person").columns("id, age, name").where("age >= 18");
+        Query create = new Create().index("index_name").table("Person").columns("id, age, name").where("age >= 18");
 
         check("CREATE INDEX index_name ON Person (id, age, name) WHERE (age >= 18);", create);
     }

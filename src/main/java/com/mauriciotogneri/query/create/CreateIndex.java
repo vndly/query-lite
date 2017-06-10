@@ -1,9 +1,10 @@
 package com.mauriciotogneri.query.create;
 
 import com.mauriciotogneri.query.common.ItemList;
+import com.mauriciotogneri.query.common.Query;
 import com.mauriciotogneri.query.common.Where;
 
-public class CreateIndex
+public class CreateIndex implements Query
 {
     private final String name;
     private final String table;
@@ -22,9 +23,14 @@ public class CreateIndex
         this.where = where;
     }
 
-    public CreateIndex(String name, String table)
+    CreateIndex(String name)
     {
-        this(name, table, false, false, null, null);
+        this(name, null, false, false, null, null);
+    }
+
+    public CreateIndex table(String table)
+    {
+        return new CreateIndex(name, table, unique, ifNotExists, columns, where);
     }
 
     public CreateIndex unique()
@@ -65,7 +71,15 @@ public class CreateIndex
             builder.append(" IF NOT EXISTS");
         }
 
-        builder.append(String.format(" %s ON %s", name, table));
+        if (name != null)
+        {
+            builder.append(String.format(" %s", name));
+        }
+
+        if (table != null)
+        {
+            builder.append(String.format(" ON %s", table));
+        }
 
         if (columns != null)
         {

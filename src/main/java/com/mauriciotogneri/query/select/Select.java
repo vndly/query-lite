@@ -1,8 +1,9 @@
 package com.mauriciotogneri.query.select;
 
+import com.mauriciotogneri.query.common.Query;
 import com.mauriciotogneri.query.common.Where;
 
-public class Select
+public class Select implements Query
 {
     private final Projection projection;
     private final From from;
@@ -23,9 +24,14 @@ public class Select
         this.limit = limit;
     }
 
-    public Select(String... columns)
+    public Select()
     {
-        this(new Projection(columns), null, null, null, null, null, null);
+        this(new Projection(), null, null, null, null, null, null);
+    }
+
+    public Select columns(String... columns)
+    {
+        return new Select(new Projection(columns), from, where, groupBy, having, orderBy, limit);
     }
 
     public Select from(String table, String... tables)

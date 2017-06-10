@@ -1,5 +1,6 @@
 package com.mauriciotogneri.query.test;
 
+import com.mauriciotogneri.query.common.Query;
 import com.mauriciotogneri.query.select.Select;
 
 import org.junit.Test;
@@ -9,7 +10,7 @@ public class SelectTest extends BaseTest
     @Test
     public void selectAll()
     {
-        Select select = new Select();
+        Query select = new Select();
 
         check("SELECT *;", select);
     }
@@ -17,7 +18,7 @@ public class SelectTest extends BaseTest
     @Test
     public void selectFields()
     {
-        Select select = new Select("name", "age", "weight");
+        Query select = new Select().columns("name", "age", "weight");
 
         check("SELECT name, age, weight;", select);
     }
@@ -25,7 +26,7 @@ public class SelectTest extends BaseTest
     @Test
     public void selectFromTable()
     {
-        Select select = new Select("name", "age", "weight").from("Person");
+        Query select = new Select().columns("name", "age", "weight").from("Person");
 
         check("SELECT name, age, weight FROM Person;", select);
     }
@@ -33,7 +34,7 @@ public class SelectTest extends BaseTest
     @Test
     public void selectFromTables()
     {
-        Select select = new Select("Person.name", "Person.age", "Person.weight", "Employee.id").from("Person", "Employee");
+        Query select = new Select().columns("Person.name", "Person.age", "Person.weight", "Employee.id").from("Person", "Employee");
 
         check("SELECT Person.name, Person.age, Person.weight, Employee.id FROM Person, Employee;", select);
     }
@@ -41,7 +42,7 @@ public class SelectTest extends BaseTest
     @Test
     public void selectWhere()
     {
-        Select select = new Select("name").from("Person").where("age >= 18");
+        Query select = new Select().columns("name").from("Person").where("age >= 18");
 
         check("SELECT name FROM Person WHERE (age >= 18);", select);
     }
@@ -49,7 +50,7 @@ public class SelectTest extends BaseTest
     @Test
     public void selectGroupBy()
     {
-        Select select = new Select("name").from("Person").groupBy("id", "age");
+        Query select = new Select().columns("name").from("Person").groupBy("id", "age");
 
         check("SELECT name FROM Person GROUP BY id, age;", select);
     }
@@ -57,7 +58,7 @@ public class SelectTest extends BaseTest
     @Test
     public void selectGroupByHaving()
     {
-        Select select = new Select("name").from("Person").groupBy("id", "age").having("age >= 18");
+        Query select = new Select().columns("name").from("Person").groupBy("id", "age").having("age >= 18");
 
         check("SELECT name FROM Person GROUP BY id, age HAVING (age >= 18);", select);
     }
@@ -65,7 +66,7 @@ public class SelectTest extends BaseTest
     @Test
     public void selectOrderBy()
     {
-        Select select = new Select("name").from("Person").orderBy("id", "age");
+        Query select = new Select().columns("name").from("Person").orderBy("id", "age");
 
         check("SELECT name FROM Person ORDER BY id, age;", select);
     }
@@ -73,7 +74,7 @@ public class SelectTest extends BaseTest
     @Test
     public void selectLimit()
     {
-        Select select = new Select("name").from("Person").limit(1000);
+        Query select = new Select().columns("name").from("Person").limit(1000);
 
         check("SELECT name FROM Person LIMIT 1000;", select);
     }
