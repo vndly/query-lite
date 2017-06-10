@@ -11,10 +11,4 @@ public class Drop
     {
         return new DropIndex(name);
     }
-
-    @Override
-    public String toString()
-    {
-        return "";
-    }
 }

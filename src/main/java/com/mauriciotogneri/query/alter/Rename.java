@@ -1,15 +1,15 @@
 package com.mauriciotogneri.query.alter;
 
-import com.mauriciotogneri.query.common.OldQuery;
+import com.mauriciotogneri.query.common.Query;
 
-public class Rename implements OldQuery
+public class Rename extends Query
 {
-    private final String oldName;
+    private final Alter alter;
     private final String newName;
 
-    public Rename(String oldName, String newName)
+    Rename(Alter alter, String newName)
     {
-        this.oldName = oldName;
+        this.alter = alter;
         this.newName = newName;
     }
 
@@ -17,17 +17,13 @@ public class Rename implements OldQuery
     public String toString()
     {
         StringBuilder builder = new StringBuilder();
-
-        if (oldName != null)
-        {
-            builder.append(String.format(" %s", oldName));
-        }
+        builder.append(alter.toString());
 
         if (newName != null)
         {
             builder.append(String.format(" RENAME TO %s", newName));
         }
 
-        return String.format("ALTER TABLE%s;", builder.toString());
+        return builder.toString();
     }
 }

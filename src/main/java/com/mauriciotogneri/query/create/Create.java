@@ -11,10 +11,4 @@ public class Create
     {
         return new CreateIndex(name);
     }
-
-    @Override
-    public String toString()
-    {
-        return "";
-    }
 }

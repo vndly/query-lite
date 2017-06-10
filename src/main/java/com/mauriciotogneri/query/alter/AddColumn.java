@@ -1,15 +1,15 @@
 package com.mauriciotogneri.query.alter;
 
-import com.mauriciotogneri.query.common.OldQuery;
+import com.mauriciotogneri.query.common.Query;
 
-public class AddColumn implements OldQuery
+public class AddColumn extends Query
 {
-    private final String table;
+    private final Alter alter;
     private final String column;
 
-    public AddColumn(String table, String column)
+    AddColumn(Alter alter, String column)
     {
-        this.table = table;
+        this.alter = alter;
         this.column = column;
     }
 
@@ -17,17 +17,13 @@ public class AddColumn implements OldQuery
     public String toString()
     {
         StringBuilder builder = new StringBuilder();
-
-        if (table != null)
-        {
-            builder.append(String.format(" %s", table));
-        }
+        builder.append(alter.toString());
 
         if (column != null)
         {
             builder.append(String.format(" ADD COLUMN %s", column));
         }
 
-        return String.format("ALTER TABLE%s;", builder.toString());
+        return builder.toString();
     }
 }
