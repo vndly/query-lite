@@ -1,4 +1,4 @@
-package com.mauriciotogneri.query;
+package com.mauriciotogneri.query.select;
 
 public class Condition
 {

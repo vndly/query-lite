@@ -1,12 +1,12 @@
-package com.mauriciotogneri.query;
+package com.mauriciotogneri.query.create;
 
 import com.mauriciotogneri.query.utils.Arrays;
 
-public class OrderBy
+public class ColumnDef
 {
     private final String[] columns;
 
-    OrderBy(String column, String... columns)
+    ColumnDef(String column, String... columns)
     {
         this.columns = Arrays.join(column, columns);
     }
@@ -14,6 +14,6 @@ public class OrderBy
     @Override
     public String toString()
     {
-        return String.format(" ORDER BY %s", Arrays.join(columns, ","));
+        return String.format(" (%s)", Arrays.join(columns, ","));
     }
 }

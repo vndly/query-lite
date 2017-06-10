@@ -1,4 +1,4 @@
-package com.mauriciotogneri.query;
+package com.mauriciotogneri.query.select;
 
 import com.mauriciotogneri.query.utils.Arrays;
 

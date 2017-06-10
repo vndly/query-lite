@@ -1,4 +1,4 @@
-package com.mauriciotogneri.query;
+package com.mauriciotogneri.query.select;
 
 public class Select
 {
@@ -96,6 +96,6 @@ public class Select
             builder.append(limit.toString());
         }
 
-        return String.format("SELECT%s", builder.toString());
+        return String.format("SELECT%s;", builder.toString());
     }
 }
