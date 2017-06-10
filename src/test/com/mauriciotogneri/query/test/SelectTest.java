@@ -4,8 +4,6 @@ import com.mauriciotogneri.query.select.Select;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-
 public class SelectTest extends BaseTest
 {
     @Test

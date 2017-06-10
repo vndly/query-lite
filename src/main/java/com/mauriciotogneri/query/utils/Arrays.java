@@ -2,20 +2,20 @@ package com.mauriciotogneri.query.utils;
 
 public class Arrays
 {
-    public static String[] join(String first, String... rest)
+    public static Object[] join(Object first, Object... rest)
     {
-        String[] result = new String[rest.length + 1];
+        Object[] result = new Object[rest.length + 1];
         result[0] = first;
         System.arraycopy(rest, 0, result, 1, rest.length);
 
         return result;
     }
 
-    public static String join(String[] list, String separator)
+    public static Object join(Object[] list, Object separator)
     {
         StringBuilder builder = new StringBuilder();
 
-        for (String element : list)
+        for (Object element : list)
         {
             if (builder.length() != 0)
             {

@@ -7,7 +7,8 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         SelectTest.class,
         CreateTableTest.class,
-        CreateIndexTest.class
+        CreateIndexTest.class,
+        InsertTest.class
 })
 public class TestSuite
 {

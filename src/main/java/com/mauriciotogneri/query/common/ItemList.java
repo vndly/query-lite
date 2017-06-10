@@ -4,14 +4,14 @@ import com.mauriciotogneri.query.utils.Arrays;
 
 public class ItemList
 {
-    private final String[] items;
+    private final Object[] items;
 
-    public ItemList(String item, String... items)
+    public ItemList(Object item, Object... items)
     {
         this.items = Arrays.join(item, items);
     }
 
-    public ItemList(String... items)
+    public ItemList(Object... items)
     {
         this.items = items;
     }
