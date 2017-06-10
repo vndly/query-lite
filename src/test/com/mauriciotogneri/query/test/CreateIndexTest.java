@@ -10,7 +10,7 @@ public class CreateIndexTest extends BaseTest
     @Test
     public void create()
     {
-        Query create = new Create().index("index_name").table("Person");
+        Query create = new Create().index("index_name").on("Person");
 
         check("CREATE INDEX index_name ON Person;", create);
     }
@@ -18,7 +18,7 @@ public class CreateIndexTest extends BaseTest
     @Test
     public void createUnique()
     {
-        Query create = new Create().index("index_name").table("Person").unique();
+        Query create = new Create().index("index_name").on("Person").unique();
 
         check("CREATE UNIQUE INDEX index_name ON Person;", create);
     }
@@ -26,7 +26,7 @@ public class CreateIndexTest extends BaseTest
     @Test
     public void createIfNotExist()
     {
-        Query create = new Create().index("index_name").table("Person").ifNotExist();
+        Query create = new Create().index("index_name").on("Person").ifNotExist();
 
         check("CREATE INDEX IF NOT EXISTS index_name ON Person;", create);
     }
@@ -34,7 +34,7 @@ public class CreateIndexTest extends BaseTest
     @Test
     public void createColumns()
     {
-        Query create = new Create().index("index_name").table("Person").columns("id, age, name");
+        Query create = new Create().index("index_name").on("Person").columns("id, age, name");
 
         check("CREATE INDEX index_name ON Person (id, age, name);", create);
     }
@@ -42,7 +42,7 @@ public class CreateIndexTest extends BaseTest
     @Test
     public void createWhere()
     {
-        Query create = new Create().index("index_name").table("Person").columns("id, age, name").where("age >= 18");
+        Query create = new Create().index("index_name").on("Person").columns("id, age, name").where("age >= 18");
 
         check("CREATE INDEX index_name ON Person (id, age, name) WHERE (age >= 18);", create);
     }

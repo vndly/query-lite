@@ -28,7 +28,7 @@ public class CreateIndex implements Query
         this(name, null, false, false, null, null);
     }
 
-    public CreateIndex table(String table)
+    public CreateIndex on(String table)
     {
         return new CreateIndex(name, table, unique, ifNotExists, columns, where);
     }
