@@ -55,4 +55,12 @@ public class QueryTest
 
         assertEquals("SELECT name FROM Person ORDER BY id, age", select.toString());
     }
+
+    @Test
+    public void selectLimit()
+    {
+        Select select = new Select("name").from("Person").limit(1000);
+
+        assertEquals("SELECT name FROM Person LIMIT 1000", select.toString());
+    }
 }
