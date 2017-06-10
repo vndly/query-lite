@@ -47,4 +47,12 @@ public class QueryTest
 
         assertEquals("SELECT name FROM Person GROUP BY id, age", select.toString());
     }
+
+    @Test
+    public void selectOrderBy()
+    {
+        Select select = new Select("name").from("Person").orderBy("id", "age");
+
+        assertEquals("SELECT name FROM Person ORDER BY id, age", select.toString());
+    }
 }
