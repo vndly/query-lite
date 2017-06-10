@@ -1,5 +1,6 @@
 package com.mauriciotogneri.query.test;
 
+import com.mauriciotogneri.query.Condition;
 import com.mauriciotogneri.query.Select;
 
 import org.junit.Test;
@@ -41,11 +42,27 @@ public class QueryTest
     }
 
     @Test
+    public void selectWhere()
+    {
+        Select select = new Select("name").from("Person").where(new Condition("age >= 18"));
+
+        assertEquals("SELECT name FROM Person WHERE age >= 18", select.toString());
+    }
+
+    @Test
     public void selectGroupBy()
     {
         Select select = new Select("name").from("Person").groupBy("id", "age");
 
         assertEquals("SELECT name FROM Person GROUP BY id, age", select.toString());
+    }
+
+    @Test
+    public void selectGroupByHaving()
+    {
+        Select select = new Select("name").from("Person").groupBy("id", "age").having(new Condition("age >= 18"));
+
+        assertEquals("SELECT name FROM Person GROUP BY id, age HAVING age >= 18", select.toString());
     }
 
     @Test
