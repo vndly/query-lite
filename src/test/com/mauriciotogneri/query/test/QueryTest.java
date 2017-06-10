@@ -39,4 +39,12 @@ public class QueryTest
 
         assertEquals("SELECT Person.name, Person.age, Person.weight, Employee.id FROM Person, Employee", select.toString());
     }
+
+    @Test
+    public void selectGroupBy()
+    {
+        Select select = new Select("name").from("Person").groupBy("id", "age");
+
+        assertEquals("SELECT name FROM Person GROUP BY id, age", select.toString());
+    }
 }

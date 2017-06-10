@@ -1,12 +1,14 @@
 package com.mauriciotogneri.query;
 
+import com.mauriciotogneri.query.utils.Arrays;
+
 public class Projection
 {
-    private final String[] projection;
+    private final String[] columns;
 
-    Projection(String... projection)
+    Projection(String... columns)
     {
-        this.projection = projection;
+        this.columns = columns;
     }
 
     @Override
@@ -14,17 +16,9 @@ public class Projection
     {
         StringBuilder builder = new StringBuilder();
 
-        if (projection.length > 0)
+        if (columns.length > 0)
         {
-            for (String element : projection)
-            {
-                if (builder.length() != 0)
-                {
-                    builder.append(", ");
-                }
-
-                builder.append(element);
-            }
+            builder.append(Arrays.join(columns, ","));
         }
         else
         {
