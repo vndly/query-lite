@@ -1,8 +1,8 @@
 package com.mauriciotogneri.query.alter;
 
-import com.mauriciotogneri.query.common.Query;
+import com.mauriciotogneri.query.common.OldQuery;
 
-public class AddColumn implements Query
+public class AddColumn implements OldQuery
 {
     private final String table;
     private final String column;

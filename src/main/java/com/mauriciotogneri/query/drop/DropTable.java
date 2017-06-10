@@ -1,8 +1,8 @@
 package com.mauriciotogneri.query.drop;
 
-import com.mauriciotogneri.query.common.Query;
+import com.mauriciotogneri.query.common.OldQuery;
 
-public class DropTable implements Query
+public class DropTable implements OldQuery
 {
     private final String name;
     private final Boolean ifExists;

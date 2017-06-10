@@ -1,6 +1,6 @@
 package com.mauriciotogneri.query.test;
 
-import com.mauriciotogneri.query.common.Query;
+import com.mauriciotogneri.query.common.OldQuery;
 import com.mauriciotogneri.query.create.Create;
 
 import org.junit.Test;
@@ -10,7 +10,7 @@ public class CreateTest extends BaseTest
     @Test
     public void createTable()
     {
-        Query create = new Create().table("Person");
+        OldQuery create = new Create().table("Person");
 
         check("CREATE TABLE Person;", create);
     }
@@ -18,7 +18,7 @@ public class CreateTest extends BaseTest
     @Test
     public void createTableIfNotExist()
     {
-        Query create = new Create().table("Person").ifNotExist();
+        OldQuery create = new Create().table("Person").ifNotExist();
 
         check("CREATE TABLE IF NOT EXISTS Person;", create);
     }
@@ -26,7 +26,7 @@ public class CreateTest extends BaseTest
     @Test
     public void createTableColumns()
     {
-        Query create = new Create().table("Person").ifNotExist().columns("ID INT PRIMARY KEY NOT NULL", "NAME TEXT NOT NULL");
+        OldQuery create = new Create().table("Person").ifNotExist().columns("ID INT PRIMARY KEY NOT NULL", "NAME TEXT NOT NULL");
 
         check("CREATE TABLE IF NOT EXISTS Person (ID INT PRIMARY KEY NOT NULL, NAME TEXT NOT NULL);", create);
     }
@@ -36,7 +36,7 @@ public class CreateTest extends BaseTest
     @Test
     public void createIndex()
     {
-        Query create = new Create().index("index_name").on("Person");
+        OldQuery create = new Create().index("index_name").on("Person");
 
         check("CREATE INDEX index_name ON Person;", create);
     }
@@ -44,7 +44,7 @@ public class CreateTest extends BaseTest
     @Test
     public void createIndexUnique()
     {
-        Query create = new Create().index("index_name").on("Person").unique();
+        OldQuery create = new Create().index("index_name").on("Person").unique();
 
         check("CREATE UNIQUE INDEX index_name ON Person;", create);
     }
@@ -52,7 +52,7 @@ public class CreateTest extends BaseTest
     @Test
     public void createIndexIfNotExist()
     {
-        Query create = new Create().index("index_name").on("Person").ifNotExist();
+        OldQuery create = new Create().index("index_name").on("Person").ifNotExist();
 
         check("CREATE INDEX IF NOT EXISTS index_name ON Person;", create);
     }
@@ -60,7 +60,7 @@ public class CreateTest extends BaseTest
     @Test
     public void createIndexColumns()
     {
-        Query create = new Create().index("index_name").on("Person").columns("id, age, name");
+        OldQuery create = new Create().index("index_name").on("Person").columns("id, age, name");
 
         check("CREATE INDEX index_name ON Person (id, age, name);", create);
     }
@@ -68,7 +68,7 @@ public class CreateTest extends BaseTest
     @Test
     public void createIndexWhere()
     {
-        Query create = new Create().index("index_name").on("Person").columns("id, age, name").where("age >= 18");
+        OldQuery create = new Create().index("index_name").on("Person").columns("id, age, name").where("age >= 18");
 
         check("CREATE INDEX index_name ON Person (id, age, name) WHERE (age >= 18);", create);
     }

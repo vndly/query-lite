@@ -1,9 +1,9 @@
 package com.mauriciotogneri.query.delete;
 
-import com.mauriciotogneri.query.common.Query;
+import com.mauriciotogneri.query.common.OldQuery;
 import com.mauriciotogneri.query.common.Where;
 
-public class Delete implements Query
+public class Delete implements OldQuery
 {
     private final String table;
     private final Where where;

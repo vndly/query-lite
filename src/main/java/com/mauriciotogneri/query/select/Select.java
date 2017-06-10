@@ -1,9 +1,9 @@
 package com.mauriciotogneri.query.select;
 
-import com.mauriciotogneri.query.common.Query;
+import com.mauriciotogneri.query.common.OldQuery;
 import com.mauriciotogneri.query.common.Where;
 
-public class Select implements Query
+public class Select implements OldQuery
 {
     private final Boolean distinct;
     private final Projection projection;

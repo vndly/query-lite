@@ -1,8 +1,8 @@
 package com.mauriciotogneri.query.drop;
 
-import com.mauriciotogneri.query.common.Query;
+import com.mauriciotogneri.query.common.OldQuery;
 
-public class DropIndex implements Query
+public class DropIndex implements OldQuery
 {
     private final String name;
     private final Boolean ifExists;

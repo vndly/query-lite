@@ -1,10 +1,10 @@
 package com.mauriciotogneri.query.create;
 
 import com.mauriciotogneri.query.common.ItemList;
-import com.mauriciotogneri.query.common.Query;
+import com.mauriciotogneri.query.common.OldQuery;
 import com.mauriciotogneri.query.common.Where;
 
-public class CreateIndex implements Query
+public class CreateIndex implements OldQuery
 {
     private final String name;
     private final String table;

@@ -1,8 +1,8 @@
 package com.mauriciotogneri.query.alter;
 
-import com.mauriciotogneri.query.common.Query;
+import com.mauriciotogneri.query.common.OldQuery;
 
-public class Alter implements Query
+public class Alter implements OldQuery
 {
     private final String name;
 

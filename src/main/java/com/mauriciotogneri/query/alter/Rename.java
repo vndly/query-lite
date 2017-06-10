@@ -1,8 +1,8 @@
 package com.mauriciotogneri.query.alter;
 
-import com.mauriciotogneri.query.common.Query;
+import com.mauriciotogneri.query.common.OldQuery;
 
-public class Rename implements Query
+public class Rename implements OldQuery
 {
     private final String oldName;
     private final String newName;

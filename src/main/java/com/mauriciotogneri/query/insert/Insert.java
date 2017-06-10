@@ -1,9 +1,9 @@
 package com.mauriciotogneri.query.insert;
 
 import com.mauriciotogneri.query.common.ItemList;
-import com.mauriciotogneri.query.common.Query;
+import com.mauriciotogneri.query.common.OldQuery;
 
-public class Insert implements Query
+public class Insert implements OldQuery
 {
     private final String table;
     private final ItemList columns;
