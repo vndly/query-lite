@@ -6,11 +6,11 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         SelectTest.class,
-        CreateTableTest.class,
-        CreateIndexTest.class,
+        CreateTest.class,
         InsertTest.class,
         DeleteTest.class,
-        UpdateTest.class
+        UpdateTest.class,
+        DropTest.class
 })
 public class TestSuite
 {

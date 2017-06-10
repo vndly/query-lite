@@ -5,10 +5,36 @@ import com.mauriciotogneri.query.create.Create;
 
 import org.junit.Test;
 
-public class CreateIndexTest extends BaseTest
+public class CreateTest extends BaseTest
 {
     @Test
-    public void create()
+    public void createTable()
+    {
+        Query create = new Create().table("Person");
+
+        check("CREATE TABLE Person;", create);
+    }
+
+    @Test
+    public void createTableIfNotExist()
+    {
+        Query create = new Create().table("Person").ifNotExist();
+
+        check("CREATE TABLE IF NOT EXISTS Person;", create);
+    }
+
+    @Test
+    public void createTableColumns()
+    {
+        Query create = new Create().table("Person").ifNotExist().columns("ID INT PRIMARY KEY NOT NULL", "NAME TEXT NOT NULL");
+
+        check("CREATE TABLE IF NOT EXISTS Person (ID INT PRIMARY KEY NOT NULL, NAME TEXT NOT NULL);", create);
+    }
+
+    //==============================================================================================
+
+    @Test
+    public void createIndex()
     {
         Query create = new Create().index("index_name").on("Person");
 
@@ -16,7 +42,7 @@ public class CreateIndexTest extends BaseTest
     }
 
     @Test
-    public void createUnique()
+    public void createIndexUnique()
     {
         Query create = new Create().index("index_name").on("Person").unique();
 
@@ -24,7 +50,7 @@ public class CreateIndexTest extends BaseTest
     }
 
     @Test
-    public void createIfNotExist()
+    public void createIndexIfNotExist()
     {
         Query create = new Create().index("index_name").on("Person").ifNotExist();
 
@@ -32,7 +58,7 @@ public class CreateIndexTest extends BaseTest
     }
 
     @Test
-    public void createColumns()
+    public void createIndexColumns()
     {
         Query create = new Create().index("index_name").on("Person").columns("id, age, name");
 
@@ -40,7 +66,7 @@ public class CreateIndexTest extends BaseTest
     }
 
     @Test
-    public void createWhere()
+    public void createIndexWhere()
     {
         Query create = new Create().index("index_name").on("Person").columns("id, age, name").where("age >= 18");
 
