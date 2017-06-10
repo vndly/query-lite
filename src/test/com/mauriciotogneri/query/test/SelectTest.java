@@ -24,6 +24,14 @@ public class SelectTest extends BaseTest
     }
 
     @Test
+    public void selectDistinctFields()
+    {
+        Query select = new Select().distinct().columns("name", "age", "weight");
+
+        check("SELECT DISTINCT name, age, weight;", select);
+    }
+
+    @Test
     public void selectFromTable()
     {
         Query select = new Select().columns("name", "age", "weight").from("Person");

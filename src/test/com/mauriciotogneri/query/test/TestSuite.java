@@ -10,7 +10,8 @@ import org.junit.runners.Suite;
         InsertTest.class,
         DeleteTest.class,
         UpdateTest.class,
-        DropTest.class
+        DropTest.class,
+        AlterTest.class
 })
 public class TestSuite
 {
