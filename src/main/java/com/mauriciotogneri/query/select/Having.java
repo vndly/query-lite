@@ -1,6 +1,6 @@
 package com.mauriciotogneri.query.select;
 
-public class Having
+class Having
 {
     private final String condition;
 

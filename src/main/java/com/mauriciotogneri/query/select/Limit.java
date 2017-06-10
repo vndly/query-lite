@@ -1,6 +1,6 @@
 package com.mauriciotogneri.query.select;
 
-public class Limit
+class Limit
 {
     private final Long limit;
 

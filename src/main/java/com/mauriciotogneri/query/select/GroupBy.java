@@ -2,7 +2,7 @@ package com.mauriciotogneri.query.select;
 
 import com.mauriciotogneri.query.common.ItemList;
 
-public class GroupBy
+class GroupBy
 {
     private final ItemList columns;
 
