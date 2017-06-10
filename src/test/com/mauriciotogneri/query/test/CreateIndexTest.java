@@ -29,4 +29,20 @@ public class CreateIndexTest extends BaseTest
 
         check("CREATE INDEX IF NOT EXISTS index_name ON Person;", create);
     }
+
+    @Test
+    public void createColumns()
+    {
+        CreateIndex create = new CreateIndex("index_name", "Person").columns("id, age, name");
+
+        check("CREATE INDEX index_name ON Person (id, age, name);", create);
+    }
+
+    @Test
+    public void createWhere()
+    {
+        CreateIndex create = new CreateIndex("index_name", "Person").columns("id, age, name").where("age >= 18");
+
+        check("CREATE INDEX index_name ON Person (id, age, name) WHERE (age >= 18);", create);
+    }
 }
