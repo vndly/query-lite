@@ -9,7 +9,8 @@ import org.junit.runners.Suite;
         CreateTableTest.class,
         CreateIndexTest.class,
         InsertTest.class,
-        DeleteTest.class
+        DeleteTest.class,
+        UpdateTest.class
 })
 public class TestSuite
 {
