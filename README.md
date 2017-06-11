@@ -14,6 +14,10 @@ Query builder library for SQLite.
 
 [`Add column`](README.md#add-column)
 
+[`Insert row`](README.md#insert-row)
+
+[`Update row`](README.md#update-row)
+
 ### Create table
 
 ```java
@@ -89,6 +93,21 @@ Generates:
 
 ```sql
 INSERT INTO Person (email, name, age, weight) VALUES ("john.doe@email.com", "John Doe", 45, 81.2);
+```
+
+### Update row
+
+```java
+Query insert = new Update()
+                .table("Person")
+                .set("age", 18)
+                .where("id = 100");
+```
+
+Generates:
+
+```sql
+UPDATE Person SET (age = 18) WHERE (id = 100);
 ```
 
 ## Installation
