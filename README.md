@@ -7,6 +7,7 @@ Query builder library for SQLite.
 ## Examples
 
 [`Create table`](README.md#create-table)
+[`Create index`](README.md#create-index)
 
 ### Create table
 
@@ -40,6 +41,32 @@ Generates:
 
 ```sql
 CREATE UNIQUE INDEX index_email ON Person (email);
+```
+
+### Rename table
+
+```java
+Query alter = new Alter("Person")
+                .rename("Human");
+```
+
+Generates:
+
+```sql
+ALTER TABLE Person RENAME TO Human;
+```
+
+### Add column
+
+```java
+Query alter = new Alter("Person")
+                .addColumn(new Column("name", DataType.TEXT).notNull());
+```
+
+Generates:
+
+```sql
+ALTER TABLE Person ADD COLUMN name TEXT NOT NULL;
 ```
 
 ## Installation
