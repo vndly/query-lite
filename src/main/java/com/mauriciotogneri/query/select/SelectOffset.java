@@ -2,20 +2,15 @@ package com.mauriciotogneri.query.select;
 
 import com.mauriciotogneri.query.common.Query;
 
-public class SelectLimit extends Query
+public class SelectOffset extends Query
 {
     private final Query parent;
-    private final Object limit;
+    private final Object offset;
 
-    SelectLimit(Query parent, Object limit)
+    SelectOffset(Query parent, Object offset)
     {
         this.parent = parent;
-        this.limit = limit;
-    }
-
-    public SelectOffset offset(Object offset)
-    {
-        return new SelectOffset(this, offset);
+        this.offset = offset;
     }
 
     @Override
@@ -23,7 +18,7 @@ public class SelectLimit extends Query
     {
         StringBuilder builder = new StringBuilder();
         builder.append(parent);
-        builder.append(String.format(" LIMIT %s", limit));
+        builder.append(String.format(" OFFSET %s", offset));
 
         return builder.toString();
     }

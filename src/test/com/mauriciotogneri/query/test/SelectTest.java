@@ -92,8 +92,8 @@ public class SelectTest extends BaseTest
                 .where("age >= ?")
                 .groupBy("age")
                 .orderBy("age")
-                .limit("?");
+                .limit("?").offset("?");
 
-        check("SELECT id, email, name FROM person WHERE (age >= 18) GROUP BY age ORDER BY age LIMIT 1000;", select, 18, 1000);
+        check("SELECT id, email, name FROM person WHERE (age >= 18) GROUP BY age ORDER BY age LIMIT 1000 OFFSET 10;", select, 18, 1000, 10);
     }
 }
