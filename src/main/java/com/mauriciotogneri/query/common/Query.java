@@ -1,6 +1,6 @@
 package com.mauriciotogneri.query.common;
 
-public class Query implements OldQuery
+public class Query
 {
     public String query(Object... parameters)
     {

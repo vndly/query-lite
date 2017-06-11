@@ -1,6 +1,6 @@
 package com.mauriciotogneri.query.test;
 
-import com.mauriciotogneri.query.common.OldQuery;
+import com.mauriciotogneri.query.common.Query;
 import com.mauriciotogneri.query.select.Select;
 
 import org.junit.Test;
@@ -8,33 +8,11 @@ import org.junit.Test;
 public class SelectTest extends BaseTest
 {
     @Test
-    public void selectAll()
-    {
-        OldQuery select = new Select();
-
-        check("SELECT *;", select);
-    }
-
-    @Test
-    public void selectFields()
-    {
-        OldQuery select = new Select().columns("name", "age", "weight");
-
-        check("SELECT name, age, weight;", select);
-    }
-
-    @Test
-    public void selectDistinctFields()
-    {
-        OldQuery select = new Select().distinct().columns("name", "age", "weight");
-
-        check("SELECT DISTINCT name, age, weight;", select);
-    }
-
-    @Test
     public void selectFromTable()
     {
-        OldQuery select = new Select().columns("name", "age", "weight").from("Person");
+        Query select = new Select()
+                .columns("name", "age", "weight")
+                .from("Person");
 
         check("SELECT name, age, weight FROM Person;", select);
     }
@@ -42,7 +20,9 @@ public class SelectTest extends BaseTest
     @Test
     public void selectFromTables()
     {
-        OldQuery select = new Select().columns("Person.name", "Person.age", "Person.weight", "Employee.id").from("Person", "Employee");
+        Query select = new Select()
+                .columns("Person.name", "Person.age", "Person.weight", "Employee.id")
+                .from("Person", "Employee");
 
         check("SELECT Person.name, Person.age, Person.weight, Employee.id FROM Person, Employee;", select);
     }
@@ -50,7 +30,10 @@ public class SelectTest extends BaseTest
     @Test
     public void selectWhere()
     {
-        OldQuery select = new Select().columns("name").from("Person").where("age >= 18");
+        Query select = new Select()
+                .columns("name")
+                .from("Person")
+                .where("age >= 18");
 
         check("SELECT name FROM Person WHERE (age >= 18);", select);
     }
@@ -58,7 +41,10 @@ public class SelectTest extends BaseTest
     @Test
     public void selectGroupBy()
     {
-        OldQuery select = new Select().columns("name").from("Person").groupBy("id", "age");
+        Query select = new Select()
+                .columns("name")
+                .from("Person")
+                .groupBy("id", "age");
 
         check("SELECT name FROM Person GROUP BY id, age;", select);
     }
@@ -66,7 +52,11 @@ public class SelectTest extends BaseTest
     @Test
     public void selectGroupByHaving()
     {
-        OldQuery select = new Select().columns("name").from("Person").groupBy("id", "age").having("age >= 18");
+        Query select = new Select()
+                .columns("name")
+                .from("Person")
+                .groupBy("id", "age")
+                .having("age >= 18");
 
         check("SELECT name FROM Person GROUP BY id, age HAVING (age >= 18);", select);
     }
@@ -74,7 +64,10 @@ public class SelectTest extends BaseTest
     @Test
     public void selectOrderBy()
     {
-        OldQuery select = new Select().columns("name").from("Person").orderBy("id", "age");
+        Query select = new Select()
+                .columns("name")
+                .from("Person")
+                .orderBy("id", "age");
 
         check("SELECT name FROM Person ORDER BY id, age;", select);
     }
@@ -82,7 +75,10 @@ public class SelectTest extends BaseTest
     @Test
     public void selectLimit()
     {
-        OldQuery select = new Select().columns("name").from("Person").limit(1000);
+        Query select = new Select()
+                .columns("name")
+                .from("Person")
+                .limit(1000);
 
         check("SELECT name FROM Person LIMIT 1000;", select);
     }
