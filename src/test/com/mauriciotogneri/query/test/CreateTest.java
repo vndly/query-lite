@@ -13,32 +13,32 @@ public class CreateTest extends BaseTest
     public void createTable()
     {
         Query create = new Create()
-                .table("Person");
+                .table("person");
 
-        check("CREATE TABLE Person;", create);
+        check("CREATE TABLE person;", create);
     }
 
     @Test
     public void createTableIfNotExist()
     {
         Query create = new Create()
-                .table("Person").ifNotExist();
+                .table("person").ifNotExist();
 
-        check("CREATE TABLE IF NOT EXISTS Person;", create);
+        check("CREATE TABLE IF NOT EXISTS person;", create);
     }
 
     @Test
     public void createTableColumns()
     {
         Query create = new Create()
-                .table("Person")
+                .table("person")
                 .ifNotExist()
                 .columns(new Column("id", DataType.INTEGER).primary().autoincrement().notNull(),
                          new Column("email", DataType.TEXT).unique().notNull(),
                          new Column("age", DataType.INTEGER).notNull().check("age >= 0"),
                          new Column("weight", DataType.REAL).notNull().check("weight >= 0"));
 
-        check("CREATE TABLE IF NOT EXISTS Person (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email TEXT UNIQUE NOT NULL, age INTEGER NOT NULL CHECK (age >= 0), weight REAL NOT NULL CHECK (weight >= 0));", create);
+        check("CREATE TABLE IF NOT EXISTS person (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email TEXT UNIQUE NOT NULL, age INTEGER NOT NULL CHECK (age >= 0), weight REAL NOT NULL CHECK (weight >= 0));", create);
     }
 
     //==============================================================================================
@@ -48,9 +48,9 @@ public class CreateTest extends BaseTest
     {
         Query create = new Create()
                 .index("index_name")
-                .on("Person");
+                .on("person");
 
-        check("CREATE INDEX index_name ON Person;", create);
+        check("CREATE INDEX index_name ON person;", create);
     }
 
     @Test
@@ -58,10 +58,10 @@ public class CreateTest extends BaseTest
     {
         Query create = new Create()
                 .index("index_name")
-                .on("Person")
+                .on("person")
                 .unique();
 
-        check("CREATE UNIQUE INDEX index_name ON Person;", create);
+        check("CREATE UNIQUE INDEX index_name ON person;", create);
     }
 
     @Test
@@ -69,10 +69,10 @@ public class CreateTest extends BaseTest
     {
         Query create = new Create()
                 .index("index_name")
-                .on("Person")
+                .on("person")
                 .ifNotExist();
 
-        check("CREATE INDEX IF NOT EXISTS index_name ON Person;", create);
+        check("CREATE INDEX IF NOT EXISTS index_name ON person;", create);
     }
 
     @Test
@@ -81,10 +81,10 @@ public class CreateTest extends BaseTest
         Query create = new Create()
                 .index("index_email")
                 .unique()
-                .on("Person")
+                .on("person")
                 .columns("email");
 
-        check("CREATE UNIQUE INDEX index_email ON Person (email);", create);
+        check("CREATE UNIQUE INDEX index_email ON person (email);", create);
     }
 
     @Test
@@ -92,10 +92,10 @@ public class CreateTest extends BaseTest
     {
         Query create = new Create()
                 .index("index_name")
-                .on("Person")
+                .on("person")
                 .columns("id, age, name")
                 .where("age >= ?");
 
-        check("CREATE INDEX index_name ON Person (id, age, name) WHERE (age >= 18);", create, 18);
+        check("CREATE INDEX index_name ON person (id, age, name) WHERE (age >= 18);", create, 18);
     }
 }

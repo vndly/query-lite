@@ -11,19 +11,19 @@ public class DropTest extends BaseTest
     public void dropTable()
     {
         Query drop = new Drop()
-                .table("Person");
+                .table("person");
 
-        check("DROP TABLE Person;", drop);
+        check("DROP TABLE person;", drop);
     }
 
     @Test
     public void dropTableIfExist()
     {
         Query drop = new Drop()
-                .table("Person")
+                .table("person")
                 .ifExist();
 
-        check("DROP TABLE IF EXISTS Person;", drop);
+        check("DROP TABLE IF EXISTS person;", drop);
     }
 
     //==============================================================================================

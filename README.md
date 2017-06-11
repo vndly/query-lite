@@ -17,7 +17,7 @@ Query builder library for SQLite.
 
 ```java
 Query create = new Create()
-                .table("Person")
+                .table("person")
                 .ifNotExist()
                 .columns(new Column("id", DataType.INTEGER).primary().autoincrement().notNull(),
                          new Column("email", DataType.TEXT).unique().notNull(),
@@ -26,7 +26,7 @@ Query create = new Create()
 ```
 
 ```sql
-CREATE TABLE IF NOT EXISTS Person (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+CREATE TABLE IF NOT EXISTS person (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                                    email TEXT UNIQUE NOT NULL,
                                    age INTEGER NOT NULL CHECK (age >= 0),
                                    weight REAL NOT NULL CHECK (weight >= 0));
@@ -38,41 +38,41 @@ CREATE TABLE IF NOT EXISTS Person (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL
 Query create = new Create()
                 .index("index_email")
                 .unique()
-                .on("Person")
+                .on("person")
                 .columns("email");
 ```
 
 ```sql
-CREATE UNIQUE INDEX index_email ON Person (email);
+CREATE UNIQUE INDEX index_email ON person (email);
 ```
 
 ### Rename table
 
 ```java
-Query alter = new Alter("Person")
-                .rename("Human");
+Query alter = new Alter("person")
+                .rename("human");
 ```
 
 ```sql
-ALTER TABLE Person RENAME TO Human;
+ALTER TABLE person RENAME TO human;
 ```
 
 ### Add column
 
 ```java
-Query alter = new Alter("Person")
+Query alter = new Alter("person")
                 .addColumn(new Column("name", DataType.TEXT).notNull());
 ```
 
 ```sql
-ALTER TABLE Person ADD COLUMN name TEXT NOT NULL;
+ALTER TABLE person ADD COLUMN name TEXT NOT NULL;
 ```
 
 ### Insert row
 
 ```java
 Query insert = new Insert()
-                .into("Person")
+                .into("person")
                 .set("email", "john.doe@email.com")
                 .set("name", "John Doe")
                 .set("age", 45)
@@ -80,20 +80,20 @@ Query insert = new Insert()
 ```
 
 ```sql
-INSERT INTO Person (email, name, age, weight) VALUES ("john.doe@email.com", "John Doe", 45, 81.2);
+INSERT INTO person (email, name, age, weight) VALUES ("john.doe@email.com", "John Doe", 45, 81.2);
 ```
 
 ### Update row
 
 ```java
 Query insert = new Update()
-                .table("Person")
+                .table("person")
                 .set("age", 18)
                 .where("id = 100");
 ```
 
 ```sql
-UPDATE Person SET (age = 18) WHERE (id = 100);
+UPDATE person SET (age = 18) WHERE (id = 100);
 ```
 
 ## Installation

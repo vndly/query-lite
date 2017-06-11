@@ -11,9 +11,9 @@ public class DeleteTest extends BaseTest
     public void delete()
     {
         Query delete = new Delete()
-                .from("Person")
+                .from("person")
                 .where("age >= ?");
 
-        check("DELETE FROM Person WHERE (age >= 18);", delete, 18);
+        check("DELETE FROM person WHERE (age >= 18);", delete, 18);
     }
 }

@@ -11,12 +11,12 @@ public class InsertTest extends BaseTest
     public void insert()
     {
         Query insert = new Insert()
-                .into("Person")
+                .into("person")
                 .set("email", "john.doe@email.com")
                 .set("name", "John Doe")
                 .set("age", 45)
                 .set("weight", 81.2);
 
-        check("INSERT INTO Person (email, name, age, weight) VALUES (\"john.doe@email.com\", \"John Doe\", 45, 81.2);", insert);
+        check("INSERT INTO person (email, name, age, weight) VALUES (\"john.doe@email.com\", \"John Doe\", 45, 81.2);", insert);
     }
 }
