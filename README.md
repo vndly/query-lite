@@ -25,8 +25,6 @@ Query create = new Create()
                          new Column("weight", DataType.REAL).notNull().check("weight >= 0"));
 ```
 
-Generates:
-
 ```sql
 CREATE TABLE IF NOT EXISTS Person (id INT PRIMARY KEY AUTOINCREMENT NOT NULL,
                                    email TEXT UNIQUE NOT NULL,
@@ -44,8 +42,6 @@ Query create = new Create()
                 .columns("email");
 ```
 
-Generates:
-
 ```sql
 CREATE UNIQUE INDEX index_email ON Person (email);
 ```
@@ -57,8 +53,6 @@ Query alter = new Alter("Person")
                 .rename("Human");
 ```
 
-Generates:
-
 ```sql
 ALTER TABLE Person RENAME TO Human;
 ```
@@ -69,8 +63,6 @@ ALTER TABLE Person RENAME TO Human;
 Query alter = new Alter("Person")
                 .addColumn(new Column("name", DataType.TEXT).notNull());
 ```
-
-Generates:
 
 ```sql
 ALTER TABLE Person ADD COLUMN name TEXT NOT NULL;
@@ -87,8 +79,6 @@ Query insert = new Insert()
                 .set("weight", 81.2);
 ```
 
-Generates:
-
 ```sql
 INSERT INTO Person (email, name, age, weight) VALUES ("john.doe@email.com", "John Doe", 45, 81.2);
 ```
@@ -101,8 +91,6 @@ Query insert = new Update()
                 .set("age", 18)
                 .where("id = 100");
 ```
-
-Generates:
 
 ```sql
 UPDATE Person SET (age = 18) WHERE (id = 100);
