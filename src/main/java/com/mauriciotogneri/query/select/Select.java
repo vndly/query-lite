@@ -26,29 +26,6 @@ public class Select
         return new SelectProjection(this, columns);
     }
 
-    // from
-    // where
-    // groupby
-    // having
-    // orderby
-    // limit
-
-    /*
-    public Select having(String condition)
-    {
-        return new Select(distinct, selectProjection, from, where, groupBy, new Having(condition), orderBy, limit);
-    }
-
-    public Select orderBy(String... columns)
-    {
-        return new Select(distinct, selectProjection, from, where, groupBy, having, new OrderBy(columns), limit);
-    }
-
-    public Select limit(long limit)
-    {
-        return new Select(distinct, selectProjection, from, where, groupBy, having, orderBy, new Limit(limit));
-    }*/
-
     @Override
     public String toString()
     {

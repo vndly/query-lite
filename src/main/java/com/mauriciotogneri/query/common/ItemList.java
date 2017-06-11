@@ -6,7 +6,12 @@ public class ItemList
 {
     private final Object[] items;
 
-    public ItemList(Object... items)
+    public ItemList(Column... items)
+    {
+        this.items = items;
+    }
+
+    public ItemList(String... items)
     {
         this.items = items;
     }
