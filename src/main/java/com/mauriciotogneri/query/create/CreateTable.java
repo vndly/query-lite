@@ -2,9 +2,9 @@ package com.mauriciotogneri.query.create;
 
 import com.mauriciotogneri.query.common.Column;
 import com.mauriciotogneri.query.common.ItemList;
-import com.mauriciotogneri.query.common.OldQuery;
+import com.mauriciotogneri.query.common.Query;
 
-public class CreateTable implements OldQuery
+public class CreateTable extends Query
 {
     private final String name;
     private final Boolean ifNotExists;
@@ -52,8 +52,6 @@ public class CreateTable implements OldQuery
         {
             builder.append(String.format(" (%s)", columns));
         }
-
-        builder.append(";");
 
         return builder.toString();
     }
