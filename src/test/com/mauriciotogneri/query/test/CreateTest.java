@@ -33,12 +33,12 @@ public class CreateTest extends BaseTest
         Query create = new Create()
                 .table("Person")
                 .ifNotExist()
-                .columns(new Column("id", DataType.INT).primary().autoincrement().notNull(),
+                .columns(new Column("id", DataType.INTEGER).primary().autoincrement().notNull(),
                          new Column("email", DataType.TEXT).unique().notNull(),
-                         new Column("age", DataType.INT).notNull().check("age >= 0"),
+                         new Column("age", DataType.INTEGER).notNull().check("age >= 0"),
                          new Column("weight", DataType.REAL).notNull().check("weight >= 0"));
 
-        check("CREATE TABLE IF NOT EXISTS Person (id INT PRIMARY KEY AUTOINCREMENT NOT NULL, email TEXT UNIQUE NOT NULL, age INT NOT NULL CHECK (age >= 0), weight REAL NOT NULL CHECK (weight >= 0));", create);
+        check("CREATE TABLE IF NOT EXISTS Person (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, email TEXT UNIQUE NOT NULL, age INTEGER NOT NULL CHECK (age >= 0), weight REAL NOT NULL CHECK (weight >= 0));", create);
     }
 
     //==============================================================================================

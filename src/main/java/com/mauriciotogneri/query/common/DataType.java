@@ -3,7 +3,7 @@ package com.mauriciotogneri.query.common;
 public enum DataType
 {
     NULL,
-    INT,
+    INTEGER,
     REAL,
     TEXT,
     BLOB
