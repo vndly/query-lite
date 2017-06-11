@@ -13,6 +13,9 @@ Query builder library for SQLite.
 * [`Insert row`](README.md#insert-row)
 * [`Update row`](README.md#update-row)
 * [`Select rows`](README.md#select-rows)
+* [`Delete rows`](README.md#delete-rows)
+* [`Drop table`](README.md#drop-table)
+* [`Drop index`](README.md#drop-index)
 
 ### Create table
 
@@ -111,6 +114,40 @@ Query select = new Select()
 
 ```sql
 SELECT id, email, name FROM person WHERE (age >= 18) GROUP BY age ORDER BY age LIMIT 1000;
+```
+
+### Delete rows
+
+```java
+Query delete = new Delete()
+                .from("person")
+                .where("age >= 18");
+```
+
+```sql
+DELETE FROM person WHERE (age >= 18);
+```
+
+### Drop table
+
+```java
+Query drop = new Drop()
+                .table("person");
+```
+
+```sql
+DROP TABLE person;
+```
+
+### Drop index
+
+```java
+Query drop = new Drop()
+                .index("index_email");
+```
+
+```sql
+DROP INDEX index_email;
 ```
 
 ## Query parameters
