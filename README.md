@@ -161,7 +161,7 @@ Query select = new Select()
                 .orderBy("age")
                 .limit("?");
 
-String query = select.query();
+String query = select.query(20, 500);
 ```
 
 The variable `query` will contain:
