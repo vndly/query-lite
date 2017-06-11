@@ -14,6 +14,6 @@ class From
     @Override
     public String toString()
     {
-        return String.format(" FROM %s", tables.toString());
+        return String.format(" FROM %s", tables);
     }
 }

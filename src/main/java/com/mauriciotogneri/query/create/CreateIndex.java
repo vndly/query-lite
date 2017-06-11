@@ -83,12 +83,12 @@ public class CreateIndex implements OldQuery
 
         if (columns != null)
         {
-            builder.append(String.format(" (%s)", columns.toString()));
+            builder.append(String.format(" (%s)", columns));
         }
 
         if (where != null)
         {
-            builder.append(where.toString());
+            builder.append(where);
         }
 
         builder.append(";");

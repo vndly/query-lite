@@ -57,7 +57,7 @@ public class Value
             }
             else if (isString(clazz))
             {
-                return String.format("\"%s\"", value.toString());
+                return String.format("\"%s\"", value);
             }
             else
             {

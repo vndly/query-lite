@@ -17,7 +17,7 @@ public class Rename extends Query
     public String toString()
     {
         StringBuilder builder = new StringBuilder();
-        builder.append(alter.toString());
+        builder.append(alter);
 
         if (newName != null)
         {

@@ -18,11 +18,11 @@ public class UpdateWhere extends Query
     public String toString()
     {
         StringBuilder builder = new StringBuilder();
-        builder.append(updateSet.toString());
+        builder.append(updateSet);
 
         if (where != null)
         {
-            builder.append(where.toString());
+            builder.append(where);
         }
 
         return builder.toString();

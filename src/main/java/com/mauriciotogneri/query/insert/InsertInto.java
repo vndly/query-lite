@@ -1,7 +1,5 @@
 package com.mauriciotogneri.query.insert;
 
-import com.mauriciotogneri.query.common.ItemList;
-
 public class InsertInto
 {
     private final String table;
@@ -11,9 +9,9 @@ public class InsertInto
         this.table = table;
     }
 
-    public InsertColumns columns(String... columns)
+    public InsertSet set(String column, Object value)
     {
-        return new InsertColumns(this, new ItemList(columns));
+        return new InsertSet(this, column, value);
     }
 
     @Override

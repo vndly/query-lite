@@ -14,6 +14,6 @@ class OrderBy
     @Override
     public String toString()
     {
-        return String.format(" ORDER BY %s", columns.toString());
+        return String.format(" ORDER BY %s", columns);
     }
 }

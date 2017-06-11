@@ -12,8 +12,8 @@ public class InsertTest extends BaseTest
     {
         Query insert = new Insert()
                 .into("Person")
-                .columns("age", "name")
-                .values(20, "\"Peter\"");
+                .set("age", 20)
+                .set("name", "Peter");
 
         check("INSERT INTO Person (age, name) VALUES (20, \"Peter\");", insert);
     }

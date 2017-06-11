@@ -14,6 +14,6 @@ class GroupBy
     @Override
     public String toString()
     {
-        return String.format(" GROUP BY %s", columns.toString());
+        return String.format(" GROUP BY %s", columns);
     }
 }

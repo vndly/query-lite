@@ -83,39 +83,39 @@ public class Select implements OldQuery
 
         if (projection != null)
         {
-            builder.append(projection.toString());
+            builder.append(projection);
         }
 
         if (from != null)
         {
-            builder.append(from.toString());
+            builder.append(from);
         }
 
         if (where != null)
         {
-            builder.append(where.toString());
+            builder.append(where);
         }
 
         if (groupBy != null)
         {
-            builder.append(groupBy.toString());
+            builder.append(groupBy);
         }
 
         if (having != null)
         {
-            builder.append(having.toString());
+            builder.append(having);
         }
 
         if (orderBy != null)
         {
-            builder.append(orderBy.toString());
+            builder.append(orderBy);
         }
 
         if (limit != null)
         {
-            builder.append(limit.toString());
+            builder.append(limit);
         }
 
-        return String.format("SELECT%s;", builder.toString());
+        return String.format("SELECT%s;", builder);
     }
 }

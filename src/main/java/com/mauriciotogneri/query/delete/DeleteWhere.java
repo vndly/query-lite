@@ -18,11 +18,11 @@ public class DeleteWhere extends Query
     public String toString()
     {
         StringBuilder builder = new StringBuilder();
-        builder.append(deleteFrom.toString());
+        builder.append(deleteFrom);
 
         if (where != null)
         {
-            builder.append(where.toString());
+            builder.append(where);
         }
 
         return builder.toString();

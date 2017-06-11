@@ -2,6 +2,7 @@ package com.mauriciotogneri.query.update;
 
 import com.mauriciotogneri.query.common.Query;
 import com.mauriciotogneri.query.common.Value;
+import com.mauriciotogneri.query.common.ValueEntry;
 import com.mauriciotogneri.query.common.Where;
 
 import java.util.ArrayList;
@@ -10,9 +11,9 @@ import java.util.List;
 public class UpdateSet extends Query
 {
     private final UpdateTable updateTable;
-    private final List<SetEntry> set;
+    private final List<ValueEntry> set;
 
-    private UpdateSet(UpdateTable updateTable, List<SetEntry> set)
+    private UpdateSet(UpdateTable updateTable, List<ValueEntry> set)
     {
         this.updateTable = updateTable;
         this.set = set;
@@ -22,12 +23,12 @@ public class UpdateSet extends Query
     {
         this.updateTable = updateTable;
         this.set = new ArrayList<>();
-        this.set.add(new SetEntry(column, new Value(value)));
+        this.set.add(new ValueEntry(column, new Value(value)));
     }
 
     public UpdateSet set(String column, Object value)
     {
-        this.set.add(new SetEntry(column, new Value(value)));
+        this.set.add(new ValueEntry(column, new Value(value)));
 
         return new UpdateSet(updateTable, set);
     }
@@ -41,39 +42,24 @@ public class UpdateSet extends Query
     public String toString()
     {
         StringBuilder builder = new StringBuilder();
-        builder.append(updateTable.toString());
+        builder.append(updateTable);
 
-        if (set != null)
+        StringBuilder setBuilder = new StringBuilder();
+
+        for (ValueEntry entry : set)
         {
-            StringBuilder setBuilder = new StringBuilder();
-
-            for (SetEntry entry : set)
+            if (setBuilder.length() != 0)
             {
-                if (setBuilder.length() != 0)
-                {
-                    setBuilder.append(", ");
-                }
-
-                setBuilder.append(entry.column);
-                setBuilder.append(" = ");
-                setBuilder.append(entry.value);
+                setBuilder.append(", ");
             }
 
-            builder.append(String.format(" SET (%s)", setBuilder.toString()));
+            setBuilder.append(entry.column());
+            setBuilder.append(" = ");
+            setBuilder.append(entry.value());
         }
+
+        builder.append(String.format(" SET (%s)", setBuilder));
 
         return builder.toString();
-    }
-
-    private static class SetEntry
-    {
-        private final String column;
-        private final Value value;
-
-        private SetEntry(String column, Value value)
-        {
-            this.column = column;
-            this.value = value;
-        }
     }
 }

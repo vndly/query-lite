@@ -50,7 +50,7 @@ public class CreateTable implements OldQuery
 
         if (columns != null)
         {
-            builder.append(String.format(" (%s)", columns.toString()));
+            builder.append(String.format(" (%s)", columns));
         }
 
         builder.append(";");

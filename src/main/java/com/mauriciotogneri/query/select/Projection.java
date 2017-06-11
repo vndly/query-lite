@@ -18,13 +18,13 @@ class Projection
 
         if (!columns.isEmpty())
         {
-            builder.append(columns.toString());
+            builder.append(columns);
         }
         else
         {
             builder.append("*");
         }
 
-        return String.format(" %s", builder.toString());
+        return String.format(" %s", builder);
     }
 }
