@@ -93,7 +93,7 @@ Query insert = new Update()
 ```
 
 ```sql
-UPDATE person SET (age = 18) WHERE (id = 100);
+UPDATE person SET age = 18 WHERE (id = 100);
 ```
 
 ## Installation

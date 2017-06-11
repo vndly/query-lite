@@ -16,6 +16,6 @@ public class UpdateTest extends BaseTest
                 .set("name", "Peter")
                 .where("id = ?");
 
-        check("UPDATE person SET (age = 18, name = \"Peter\") WHERE (id = 100);", insert, 100);
+        check("UPDATE person SET age = 18, name = \"Peter\" WHERE (id = 100);", insert, 100);
     }
 }

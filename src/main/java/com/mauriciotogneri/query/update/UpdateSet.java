@@ -58,7 +58,7 @@ public class UpdateSet extends Query
             setBuilder.append(entry.value());
         }
 
-        builder.append(String.format(" SET (%s)", setBuilder));
+        builder.append(String.format(" SET %s", setBuilder));
 
         return builder.toString();
     }
