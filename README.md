@@ -1,8 +1,8 @@
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/mauriciotogneri/query/blob/master/LICENSE.md)
-[![Download](https://api.bintray.com/packages/mauriciotogneri/maven/query/images/download.svg)](https://bintray.com/mauriciotogneri/maven/query/_latestVersion)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/mauriciotogneri/query-lite/blob/master/LICENSE.md)
+[![Download](https://api.bintray.com/packages/mauriciotogneri/maven/querylite/images/download.svg)](https://bintray.com/mauriciotogneri/maven/querylite/_latestVersion)
 
-# Query
-A query builder.
+# Query Lite
+Query builder library for SQLite.
 
 ## Installation
 
@@ -23,7 +23,7 @@ and the dependency:
 <dependency>
     <groupId>com.mauriciotogneri</groupId>
     <artifactId>query</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
@@ -32,6 +32,6 @@ or if you use Gradle:
 ```groovy
 dependencies
 {
-    compile 'com.mauriciotogneri:query:0.1.0'
+    compile 'com.mauriciotogneri:query:0.2.0'
 }
 ```

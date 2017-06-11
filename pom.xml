@@ -6,15 +6,15 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mauriciotogneri</groupId>
-    <artifactId>query</artifactId>
-    <version>0.1.0</version>
-    <name>Query</name>
+    <artifactId>querylite</artifactId>
+    <version>0.2.0</version>
+    <name>Query Lite</name>
     <packaging>jar</packaging>
-    <url>https://github.com/mauriciotogneri/query</url>
+    <url>https://github.com/mauriciotogneri/query-lite</url>
     <licenses>
         <license>
             <name>MIT</name>
-            <url>https://github.com/mauriciotogneri/query/blob/master/LICENSE.md</url>
+            <url>https://github.com/mauriciotogneri/query-lite/blob/master/LICENSE.md</url>
             <distribution>site</distribution>
         </license>
     </licenses>
@@ -60,7 +60,7 @@
     <distributionManagement>
         <repository>
             <id>bintray</id>
-            <url>https://api.bintray.com/maven/mauriciotogneri/maven/query/;publish=1</url>
+            <url>https://api.bintray.com/maven/mauriciotogneri/maven/querylite/;publish=1</url>
         </repository>
     </distributionManagement>
 
