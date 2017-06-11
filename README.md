@@ -12,6 +12,7 @@ Query builder library for SQLite.
 * [`Add column`](README.md#add-column)
 * [`Insert row`](README.md#insert-row)
 * [`Update row`](README.md#update-row)
+* [`Select rows`](README.md#select-rows)
 
 ### Create table
 
