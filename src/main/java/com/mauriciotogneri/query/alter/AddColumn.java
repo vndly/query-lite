@@ -1,13 +1,14 @@
 package com.mauriciotogneri.query.alter;
 
+import com.mauriciotogneri.query.common.Column;
 import com.mauriciotogneri.query.common.Query;
 
 public class AddColumn extends Query
 {
     private final Alter alter;
-    private final String column;
+    private final Column column;
 
-    AddColumn(Alter alter, String column)
+    AddColumn(Alter alter, Column column)
     {
         this.alter = alter;
         this.column = column;

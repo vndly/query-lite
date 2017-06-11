@@ -6,9 +6,9 @@ class From
 {
     private final ItemList tables;
 
-    From(String table, String... tables)
+    From(String... tables)
     {
-        this.tables = new ItemList(table, tables);
+        this.tables = new ItemList(tables);
     }
 
     @Override

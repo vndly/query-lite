@@ -11,9 +11,9 @@ public class InsertInto
         this.table = table;
     }
 
-    public InsertColumns columns(String column, String... columns)
+    public InsertColumns columns(String... columns)
     {
-        return new InsertColumns(this, new ItemList(column, columns));
+        return new InsertColumns(this, new ItemList(columns));
     }
 
     @Override

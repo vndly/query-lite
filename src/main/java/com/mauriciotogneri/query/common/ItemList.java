@@ -6,11 +6,6 @@ public class ItemList
 {
     private final Object[] items;
 
-    public ItemList(Object item, Object... items)
-    {
-        this.items = Arrays.join(item, items);
-    }
-
     public ItemList(Object... items)
     {
         this.items = items;

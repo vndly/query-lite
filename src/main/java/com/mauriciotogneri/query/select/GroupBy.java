@@ -6,9 +6,9 @@ class GroupBy
 {
     private final ItemList columns;
 
-    GroupBy(String column, String... columns)
+    GroupBy(String... columns)
     {
-        this.columns = new ItemList(column, columns);
+        this.columns = new ItemList(columns);
     }
 
     @Override

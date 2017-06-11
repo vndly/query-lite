@@ -2,15 +2,6 @@ package com.mauriciotogneri.query.utils;
 
 public class Arrays
 {
-    public static Object[] join(Object first, Object... rest)
-    {
-        Object[] result = new Object[rest.length + 1];
-        result[0] = first;
-        System.arraycopy(rest, 0, result, 1, rest.length);
-
-        return result;
-    }
-
     public static Object join(Object[] list, Object separator)
     {
         StringBuilder builder = new StringBuilder();

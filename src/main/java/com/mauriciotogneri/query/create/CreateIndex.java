@@ -43,9 +43,9 @@ public class CreateIndex implements OldQuery
         return new CreateIndex(name, table, unique, true, columns, where);
     }
 
-    public CreateIndex columns(String column, String... columns)
+    public CreateIndex columns(String... columns)
     {
-        return new CreateIndex(name, table, unique, ifNotExists, new ItemList(column, columns), where);
+        return new CreateIndex(name, table, unique, ifNotExists, new ItemList(columns), where);
     }
 
     public CreateIndex where(String condition)

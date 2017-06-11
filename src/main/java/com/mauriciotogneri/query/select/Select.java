@@ -41,9 +41,9 @@ public class Select implements OldQuery
         return new Select(distinct, new Projection(columns), from, where, groupBy, having, orderBy, limit);
     }
 
-    public Select from(String table, String... tables)
+    public Select from(String... tables)
     {
-        return new Select(distinct, projection, new From(table, tables), where, groupBy, having, orderBy, limit);
+        return new Select(distinct, projection, new From(tables), where, groupBy, having, orderBy, limit);
     }
 
     public Select where(String condition)
@@ -51,9 +51,9 @@ public class Select implements OldQuery
         return new Select(distinct, projection, from, new Where(condition), groupBy, having, orderBy, limit);
     }
 
-    public Select groupBy(String column, String... columns)
+    public Select groupBy(String... columns)
     {
-        return new Select(distinct, projection, from, where, new GroupBy(column, columns), having, orderBy, limit);
+        return new Select(distinct, projection, from, where, new GroupBy(columns), having, orderBy, limit);
     }
 
     public Select having(String condition)
@@ -61,9 +61,9 @@ public class Select implements OldQuery
         return new Select(distinct, projection, from, where, groupBy, new Having(condition), orderBy, limit);
     }
 
-    public Select orderBy(String column, String... columns)
+    public Select orderBy(String... columns)
     {
-        return new Select(distinct, projection, from, where, groupBy, having, new OrderBy(column, columns), limit);
+        return new Select(distinct, projection, from, where, groupBy, having, new OrderBy(columns), limit);
     }
 
     public Select limit(long limit)

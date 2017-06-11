@@ -13,9 +13,9 @@ public class InsertColumns
         this.columns = columns;
     }
 
-    public InsertValues values(Object value, Object... values)
+    public InsertValues values(Object... values)
     {
-        return new InsertValues(this, new ItemList(value, values));
+        return new InsertValues(this, new ItemList(values));
     }
 
     @Override

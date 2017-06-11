@@ -1,5 +1,7 @@
 package com.mauriciotogneri.query.test;
 
+import com.mauriciotogneri.query.common.Column;
+import com.mauriciotogneri.query.common.DataType;
 import com.mauriciotogneri.query.common.OldQuery;
 import com.mauriciotogneri.query.create.Create;
 
@@ -10,7 +12,8 @@ public class CreateTest extends BaseTest
     @Test
     public void createTable()
     {
-        OldQuery create = new Create().table("Person");
+        OldQuery create = new Create()
+                .table("Person");
 
         check("CREATE TABLE Person;", create);
     }
@@ -18,7 +21,8 @@ public class CreateTest extends BaseTest
     @Test
     public void createTableIfNotExist()
     {
-        OldQuery create = new Create().table("Person").ifNotExist();
+        OldQuery create = new Create()
+                .table("Person").ifNotExist();
 
         check("CREATE TABLE IF NOT EXISTS Person;", create);
     }
@@ -26,9 +30,13 @@ public class CreateTest extends BaseTest
     @Test
     public void createTableColumns()
     {
-        OldQuery create = new Create().table("Person").ifNotExist().columns("ID INT PRIMARY KEY NOT NULL", "NAME TEXT NOT NULL");
+        OldQuery create = new Create()
+                .table("Person")
+                .ifNotExist()
+                .columns(new Column("id", DataType.INT).primary().notNull(),
+                         new Column("name", DataType.TEXT).notNull());
 
-        check("CREATE TABLE IF NOT EXISTS Person (ID INT PRIMARY KEY NOT NULL, NAME TEXT NOT NULL);", create);
+        check("CREATE TABLE IF NOT EXISTS Person (id INT PRIMARY KEY NOT NULL, name TEXT NOT NULL);", create);
     }
 
     //==============================================================================================

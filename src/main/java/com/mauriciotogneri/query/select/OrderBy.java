@@ -6,9 +6,9 @@ class OrderBy
 {
     private final ItemList columns;
 
-    OrderBy(String column, String... columns)
+    OrderBy(String... columns)
     {
-        this.columns = new ItemList(column, columns);
+        this.columns = new ItemList(columns);
     }
 
     @Override

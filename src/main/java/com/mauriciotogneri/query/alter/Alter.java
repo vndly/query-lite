@@ -1,5 +1,7 @@
 package com.mauriciotogneri.query.alter;
 
+import com.mauriciotogneri.query.common.Column;
+
 public class Alter
 {
     private final String table;
@@ -14,7 +16,7 @@ public class Alter
         return new Rename(this, newName);
     }
 
-    public AddColumn addColumn(String column)
+    public AddColumn addColumn(Column column)
     {
         return new AddColumn(this, column);
     }

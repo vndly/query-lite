@@ -1,5 +1,6 @@
 package com.mauriciotogneri.query.create;
 
+import com.mauriciotogneri.query.common.Column;
 import com.mauriciotogneri.query.common.ItemList;
 import com.mauriciotogneri.query.common.OldQuery;
 
@@ -26,9 +27,9 @@ public class CreateTable implements OldQuery
         return new CreateTable(name, true, columns);
     }
 
-    public CreateTable columns(String column, String... columns)
+    public CreateTable columns(Column... columns)
     {
-        return new CreateTable(name, ifNotExists, new ItemList(column, columns));
+        return new CreateTable(name, ifNotExists, new ItemList(columns));
     }
 
     @Override
