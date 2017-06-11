@@ -6,6 +6,8 @@ Query builder library for SQLite.
 
 ## Examples
 
+[`Create table`](src/com/mauriciotogneri/query-lite/README.md#create-table)
+
 ### Create table
 
 ```java
@@ -13,7 +15,7 @@ Query create = new Create()
                 .table("Person")
                 .ifNotExist()
                 .columns(new Column("id", DataType.INT).primary().autoincrement().notNull(),
-                         new Column("name", DataType.TEXT).notNull(),
+                         new Column("email", DataType.TEXT).unique().notNull(),
                          new Column("age", DataType.INT).notNull().check("age >= 0"),
                          new Column("weight", DataType.REAL).notNull().check("weight >= 0"));
 ```
@@ -21,7 +23,7 @@ Query create = new Create()
 Generates:
 
 ```sql
-CREATE TABLE IF NOT EXISTS Person (id INT PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL, age INT NOT NULL CHECK (age >= 0), weight REAL NOT NULL CHECK (weight >= 0));
+CREATE TABLE IF NOT EXISTS Person (id INT PRIMARY KEY AUTOINCREMENT NOT NULL, email TEXT UNIQUE NOT NULL, age INT NOT NULL CHECK (age >= 0), weight REAL NOT NULL CHECK (weight >= 0));
 ```
 
 ### Create index
