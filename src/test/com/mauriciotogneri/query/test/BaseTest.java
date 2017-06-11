@@ -6,8 +6,8 @@ import static org.junit.Assert.assertEquals;
 
 class BaseTest
 {
-    void check(String expected, Query actual)
+    void check(String expected, Query actual, Object... values)
     {
-        assertEquals(expected, actual.query());
+        assertEquals(expected, actual.query(values));
     }
 }

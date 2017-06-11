@@ -10,20 +10,20 @@ public class DropTest extends BaseTest
     @Test
     public void dropTable()
     {
-        Query create = new Drop()
+        Query drop = new Drop()
                 .table("Person");
 
-        check("DROP TABLE Person;", create);
+        check("DROP TABLE Person;", drop);
     }
 
     @Test
     public void dropTableIfExist()
     {
-        Query create = new Drop()
+        Query drop = new Drop()
                 .table("Person")
                 .ifExist();
 
-        check("DROP TABLE IF EXISTS Person;", create);
+        check("DROP TABLE IF EXISTS Person;", drop);
     }
 
     //==============================================================================================
@@ -31,19 +31,19 @@ public class DropTest extends BaseTest
     @Test
     public void dropIndex()
     {
-        Query create = new Drop()
+        Query drop = new Drop()
                 .index("index_name");
 
-        check("DROP INDEX index_name;", create);
+        check("DROP INDEX index_name;", drop);
     }
 
     @Test
     public void dropIndexIfExist()
     {
-        Query create = new Drop()
+        Query drop = new Drop()
                 .index("index_name")
                 .ifExist();
 
-        check("DROP INDEX IF EXISTS index_name;", create);
+        check("DROP INDEX IF EXISTS index_name;", drop);
     }
 }

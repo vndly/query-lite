@@ -91,8 +91,8 @@ public class CreateTest extends BaseTest
                 .index("index_name")
                 .on("Person")
                 .columns("id, age, name")
-                .where("age >= 18");
+                .where("age >= ?");
 
-        check("CREATE INDEX index_name ON Person (id, age, name) WHERE (age >= 18);", create);
+        check("CREATE INDEX index_name ON Person (id, age, name) WHERE (age >= 18);", create, 18);
     }
 }

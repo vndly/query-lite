@@ -33,9 +33,9 @@ public class SelectTest extends BaseTest
         Query select = new Select()
                 .columns("name")
                 .from("Person")
-                .where("age >= 18");
+                .where("age >= ?");
 
-        check("SELECT name FROM Person WHERE (age >= 18);", select);
+        check("SELECT name FROM Person WHERE (age >= 18);", select, 18);
     }
 
     @Test
@@ -56,9 +56,9 @@ public class SelectTest extends BaseTest
                 .columns("name")
                 .from("Person")
                 .groupBy("id", "age")
-                .having("age >= 18");
+                .having("age >= ?");
 
-        check("SELECT name FROM Person GROUP BY id, age HAVING (age >= 18);", select);
+        check("SELECT name FROM Person GROUP BY id, age HAVING (age >= 18);", select, 18);
     }
 
     @Test
@@ -78,8 +78,8 @@ public class SelectTest extends BaseTest
         Query select = new Select()
                 .columns("name")
                 .from("Person")
-                .limit(1000);
+                .limit("?");
 
-        check("SELECT name FROM Person LIMIT 1000;", select);
+        check("SELECT name FROM Person LIMIT 1000;", select, 1000);
     }
 }

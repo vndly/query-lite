@@ -12,18 +12,18 @@ public class AlterTest extends BaseTest
     @Test
     public void rename()
     {
-        Query create = new Alter("Person")
+        Query alter = new Alter("Person")
                 .rename("Human");
 
-        check("ALTER TABLE Person RENAME TO Human;", create);
+        check("ALTER TABLE Person RENAME TO Human;", alter);
     }
 
     @Test
     public void addColumn()
     {
-        Query create = new Alter("Person")
+        Query alter = new Alter("Person")
                 .addColumn(new Column("name", DataType.TEXT).notNull());
 
-        check("ALTER TABLE Person ADD COLUMN name TEXT NOT NULL;", create);
+        check("ALTER TABLE Person ADD COLUMN name TEXT NOT NULL;", alter);
     }
 }

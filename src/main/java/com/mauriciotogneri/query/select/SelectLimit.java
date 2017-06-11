@@ -5,9 +5,9 @@ import com.mauriciotogneri.query.common.Query;
 public class SelectLimit extends Query
 {
     private final Query parent;
-    private final Long limit;
+    private final Object limit;
 
-    SelectLimit(Query parent, Long limit)
+    SelectLimit(Query parent, Object limit)
     {
         this.parent = parent;
         this.limit = limit;
