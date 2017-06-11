@@ -61,11 +61,11 @@ ALTER TABLE person RENAME TO human;
 
 ```java
 Query alter = new Alter("person")
-                .addColumn(new Column("name", DataType.TEXT).notNull());
+                .addColumn(new Column("name", DataType.TEXT));
 ```
 
 ```sql
-ALTER TABLE person ADD COLUMN name TEXT NOT NULL;
+ALTER TABLE person ADD COLUMN name TEXT;
 ```
 
 ### Insert row
