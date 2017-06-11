@@ -13,7 +13,7 @@ public class UpdateTest extends BaseTest
         Query insert = new Update()
                 .table("Person")
                 .set("age", 18)
-                .set("name", "\"Peter\"")
+                .set("name", "Peter")
                 .where("id = 100");
 
         check("UPDATE Person SET (age = 18, name = \"Peter\") WHERE (id = 100);", insert);

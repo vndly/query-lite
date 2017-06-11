@@ -1,6 +1,7 @@
 package com.mauriciotogneri.query.update;
 
 import com.mauriciotogneri.query.common.Query;
+import com.mauriciotogneri.query.common.Value;
 import com.mauriciotogneri.query.common.Where;
 
 import java.util.ArrayList;
@@ -21,12 +22,12 @@ public class UpdateSet extends Query
     {
         this.updateTable = updateTable;
         this.set = new ArrayList<>();
-        this.set.add(new SetEntry(column, value));
+        this.set.add(new SetEntry(column, new Value(value)));
     }
 
     public UpdateSet set(String column, Object value)
     {
-        this.set.add(new SetEntry(column, value));
+        this.set.add(new SetEntry(column, new Value(value)));
 
         return new UpdateSet(updateTable, set);
     }
@@ -67,9 +68,9 @@ public class UpdateSet extends Query
     private static class SetEntry
     {
         private final String column;
-        private final Object value;
+        private final Value value;
 
-        private SetEntry(String column, Object value)
+        private SetEntry(String column, Value value)
         {
             this.column = column;
             this.value = value;
