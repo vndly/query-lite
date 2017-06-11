@@ -6,7 +6,7 @@ Query builder library for SQLite.
 
 ## Examples
 
-[`Create table`](src/com/mauriciotogneri/query-lite/README.md#create-table)
+[`Create table`](README.md#create-table)
 
 ### Create table
 
