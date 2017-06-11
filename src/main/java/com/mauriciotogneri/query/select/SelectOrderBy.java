@@ -14,7 +14,7 @@ public class SelectOrderBy extends Query
         this.columns = new ItemList(columns);
     }
 
-    public SelectLimit limit(long limit)
+    public SelectLimit limit(Object limit)
     {
         return new SelectLimit(this, limit);
     }

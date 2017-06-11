@@ -23,7 +23,7 @@ public class SelectWhere extends Query
         return new SelectOrderBy(this, columns);
     }
 
-    public SelectLimit limit(long limit)
+    public SelectLimit limit(Object limit)
     {
         return new SelectLimit(this, limit);
     }

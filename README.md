@@ -96,6 +96,26 @@ Query insert = new Update()
 UPDATE person SET age = 18 WHERE (id = 100);
 ```
 
+### Select rows
+
+```java
+Query select = new Select()
+                .columns("id, email, name")
+                .from("person")
+                .where("age >= 18")
+                .groupBy("age")
+                .orderBy("age")
+                .limit(1000);
+```
+
+```sql
+SELECT id, email, name FROM person WHERE (age >= 18) GROUP BY age ORDER BY age LIMIT 1000;
+```
+
+## Query parameters
+
+TODO
+
 ## Installation
 
 Add the following code to your **pom.xml**:

@@ -82,4 +82,18 @@ public class SelectTest extends BaseTest
 
         check("SELECT name FROM person LIMIT 1000;", select, 1000);
     }
+
+    @Test
+    public void selectFull()
+    {
+        Query select = new Select()
+                .columns("id, email, name")
+                .from("person")
+                .where("age >= ?")
+                .groupBy("age")
+                .orderBy("age")
+                .limit("?");
+
+        check("SELECT id, email, name FROM person WHERE (age >= 18) GROUP BY age ORDER BY age LIMIT 1000;", select, 18, 1000);
+    }
 }
