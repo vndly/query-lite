@@ -34,11 +34,11 @@ public class CreateTest extends BaseTest
                 .table("Person")
                 .ifNotExist()
                 .columns(new Column("id", DataType.INT).primary().autoincrement().notNull(),
-                         new Column("name", DataType.TEXT).notNull(),
+                         new Column("email", DataType.TEXT).unique().notNull(),
                          new Column("age", DataType.INT).notNull().check("age >= 0"),
                          new Column("weight", DataType.REAL).notNull().check("weight >= 0"));
 
-        check("CREATE TABLE IF NOT EXISTS Person (id INT PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL, age INT NOT NULL CHECK (age >= 0), weight REAL NOT NULL CHECK (weight >= 0));", create);
+        check("CREATE TABLE IF NOT EXISTS Person (id INT PRIMARY KEY AUTOINCREMENT NOT NULL, email TEXT UNIQUE NOT NULL, age INT NOT NULL CHECK (age >= 0), weight REAL NOT NULL CHECK (weight >= 0));", create);
     }
 
     //==============================================================================================
@@ -79,11 +79,12 @@ public class CreateTest extends BaseTest
     public void createIndexColumns()
     {
         Query create = new Create()
-                .index("index_name")
+                .index("index_email")
+                .unique()
                 .on("Person")
-                .columns("id, age, name");
+                .columns("email");
 
-        check("CREATE INDEX index_name ON Person (id, age, name);", create);
+        check("CREATE UNIQUE INDEX index_email ON Person (email);", create);
     }
 
     @Test

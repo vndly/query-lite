@@ -24,6 +24,22 @@ Generates:
 CREATE TABLE IF NOT EXISTS Person (id INT PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL, age INT NOT NULL CHECK (age >= 0), weight REAL NOT NULL CHECK (weight >= 0));
 ```
 
+### Create index
+
+```java
+Query create = new Create()
+                .index("index_email")
+                .unique()
+                .on("Person")
+                .columns("email");
+```
+
+Generates:
+
+```sql
+CREATE UNIQUE INDEX index_email ON Person (email);
+```
+
 ## Installation
 
 Add the following code to your **pom.xml**:
