@@ -1,8 +1,8 @@
 package com.mauriciotogneri.query.drop;
 
-import com.mauriciotogneri.query.common.OldQuery;
+import com.mauriciotogneri.query.common.Query;
 
-public class DropIndex implements OldQuery
+public class DropIndex extends Query
 {
     private final String name;
     private final Boolean ifExists;
@@ -23,7 +23,6 @@ public class DropIndex implements OldQuery
         return new DropIndex(name, true);
     }
 
-
     @Override
     public String toString()
     {
@@ -39,8 +38,6 @@ public class DropIndex implements OldQuery
         {
             builder.append(String.format(" %s", name));
         }
-
-        builder.append(";");
 
         return builder.toString();
     }

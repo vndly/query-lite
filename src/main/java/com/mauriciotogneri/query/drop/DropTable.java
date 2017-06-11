@@ -1,8 +1,8 @@
 package com.mauriciotogneri.query.drop;
 
-import com.mauriciotogneri.query.common.OldQuery;
+import com.mauriciotogneri.query.common.Query;
 
-public class DropTable implements OldQuery
+public class DropTable extends Query
 {
     private final String name;
     private final Boolean ifExists;
@@ -38,8 +38,6 @@ public class DropTable implements OldQuery
         {
             builder.append(String.format(" %s", name));
         }
-
-        builder.append(";");
 
         return builder.toString();
     }
