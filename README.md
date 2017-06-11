@@ -152,7 +152,23 @@ DROP INDEX index_email;
 
 ## Query parameters
 
-TODO
+```java
+Query select = new Select()
+                .columns("id, email, name")
+                .from("person")
+                .where("age >= ?")
+                .groupBy("age")
+                .orderBy("age")
+                .limit("?");
+
+String query = select.query();
+```
+
+The variable `query` will contain:
+
+```sql
+SELECT id, email, name FROM person WHERE (age >= 20) GROUP BY age ORDER BY age LIMIT 500;
+```
 
 ## Installation
 
