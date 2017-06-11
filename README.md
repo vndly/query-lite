@@ -7,9 +7,11 @@ Query builder library for SQLite.
 ## Examples
 
 [`Create table`](README.md#create-table)
+
 [`Create index`](README.md#create-index)
 
 [`Rename table`](README.md#rename-table)
+
 [`Add column`](README.md#add-column)
 
 ### Create table
