@@ -74,6 +74,23 @@ Generates:
 ALTER TABLE Person ADD COLUMN name TEXT NOT NULL;
 ```
 
+### Insert row
+
+```java
+Query insert = new Insert()
+                .into("Person")
+                .set("email", "john.doe@email.com")
+                .set("name", "John Doe")
+                .set("age", 45)
+                .set("weight", 81.2);
+```
+
+Generates:
+
+```sql
+INSERT INTO Person (email, name, age, weight) VALUES ("john.doe@email.com", "John Doe", 45, 81.2);
+```
+
 ## Installation
 
 Add the following code to your **pom.xml**:
