@@ -10,8 +10,8 @@ Query builder library for SQLite.
 * [`Create index`](README.md#create-index)
 * [`Rename table`](README.md#rename-table)
 * [`Add column`](README.md#add-column)
-* [`Insert row`](README.md#insert-row)
-* [`Update row`](README.md#update-row)
+* [`Insert rows`](README.md#insert-rows)
+* [`Update rows`](README.md#update-rows)
 * [`Select rows`](README.md#select-rows)
 * [`Delete rows`](README.md#delete-rows)
 * [`Drop table`](README.md#drop-table)
@@ -72,7 +72,7 @@ Query alter = new Alter("person")
 ALTER TABLE person ADD COLUMN name TEXT;
 ```
 
-### Insert row
+### Insert rows
 
 ```java
 Query insert = new Insert()
@@ -87,7 +87,7 @@ Query insert = new Insert()
 INSERT INTO person (email, name, age, weight) VALUES ("john.doe@email.com", "John Doe", 45, 81.2);
 ```
 
-### Update row
+### Update rows
 
 ```java
 Query insert = new Update()
