@@ -10,12 +10,12 @@ Query builder library for SQLite.
 
 ```java
 Query create = new Create()
-                	.table("Person")
-                	.ifNotExist()
-                	.columns(new Column("id", DataType.INT).primary().autoincrement().notNull(),
-                    	     new Column("name", DataType.TEXT).notNull(),
-                        	 new Column("age", DataType.INT).notNull().check("age >= 0"),
-                        	 new Column("weight", DataType.REAL).notNull().check("weight >= 0"));
+                .table("Person")
+                .ifNotExist()
+                .columns(new Column("id", DataType.INT).primary().autoincrement().notNull(),
+                         new Column("name", DataType.TEXT).notNull(),
+                         new Column("age", DataType.INT).notNull().check("age >= 0"),
+                         new Column("weight", DataType.REAL).notNull().check("weight >= 0"));
 ```
 
 Generates:
