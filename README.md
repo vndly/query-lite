@@ -28,7 +28,10 @@ Query create = new Create()
 Generates:
 
 ```sql
-CREATE TABLE IF NOT EXISTS Person (id INT PRIMARY KEY AUTOINCREMENT NOT NULL, email TEXT UNIQUE NOT NULL, age INT NOT NULL CHECK (age >= 0), weight REAL NOT NULL CHECK (weight >= 0));
+CREATE TABLE IF NOT EXISTS Person (id INT PRIMARY KEY AUTOINCREMENT NOT NULL,
+                                   email TEXT UNIQUE NOT NULL,
+                                   age INT NOT NULL CHECK (age >= 0),
+                                   weight REAL NOT NULL CHECK (weight >= 0));
 ```
 
 ### Create index
