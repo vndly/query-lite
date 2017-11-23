@@ -188,7 +188,7 @@ and the dependency:
 ```xml
 <dependency>
     <groupId>com.mauriciotogneri</groupId>
-    <artifactId>query</artifactId>
+    <artifactId>querylite</artifactId>
     <version>0.5.0</version>
 </dependency>
 ```
@@ -198,6 +198,6 @@ or if you use Gradle:
 ```groovy
 dependencies
 {
-    compile 'com.mauriciotogneri:query:0.5.0'
+    compile 'com.mauriciotogneri:querylite:0.5.0'
 }
 ```
